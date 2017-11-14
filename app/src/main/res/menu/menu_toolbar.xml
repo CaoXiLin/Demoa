@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <item
+            android:id="@+id/sao"
+            android:title="扫一扫"
+            android:icon="@mipmap/saoyisaoa"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            >
+
+            </item>
+
+            <item
+            android:id="@+id/jia"
+            android:title="加好友/群"
+            android:icon="@mipmap/jiahaoyou"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            >
+
+            </item>
+            <item
+            android:id="@+id/fukuan"
+            android:title="付款"
+            android:icon="@mipmap/erweima"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            >
+            </item>
+
+</menu>

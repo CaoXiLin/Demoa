@@ -1,0 +1,59 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+
+    <style name="AppTheme.Toolbar" parent="AppTheme.Toolbar">
+        <!--设置  title文字的颜色 -->
+        <item name="titleTextColor">@android:color/black</item>
+        <!--弹窗 在下边展示如果不设置  弹出会在按钮上方弹出-->
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+        <!--设置 toolbar 图标显示什么样子的-->
+        <item name="actionOverflowButtonStyle">@style/ActionButton.Overflow</item>
+
+
+        <!-- 设置 Toolbar 左侧 图标的显示-->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
+
+
+
+
+    </style>
+
+
+
+
+
+
+
+    <style name="ActionButton.Overflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+
+        <!--自定义的图标引用-->
+        <item name="android:src">@mipmap/category</item>
+    </style>
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>  <!--把该属性改为false即可使menu位置位于toolbar之下-->
+    </style>
+
+
+
+
+    <!-- 设置 Toolbar 左侧 图标的显示-->
+    <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+
+
+
+
+
+
+
+</resources>
