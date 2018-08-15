@@ -1,22 +1,24 @@
-package com.cxl.demo;
+package com.cxl.demo.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cxl.demo.R;
+import com.cxl.demo.ui.adapter.ViewPagerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationmenu;
     @BindView(R.id.drawerlayou)
     DrawerLayout mdrawerlayou;
+    @BindView(R.id.tab_layout)
+    TabLayout tabLayout;
+    @BindView(R.id.view_pager)
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +58,18 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         initNavigationmenu();
+        initTabLayout();
 
     }
 
 
+    private void initTabLayout() {
 
+        PagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+
+        tabLayout.setupWithViewPager(viewPager);
+    }
 
 
     private void initNavigationmenu() {
@@ -64,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
         toolbar.inflateMenu(R.menu.menu_toolbar);   // 获取toolbar 右侧 按钮  如果不设置那么就不会显示 toolbar 右侧按钮
 
         View headerView = navigationmenu.getHeaderView(0);// 获取  头布局
-
-
 
 
         ImageView dengji = headerView.findViewById(R.id.dengji);  // 获取头布局的  控件id 设置 点击事件
@@ -92,11 +103,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-            //  获取 navigationmenu   Menu 事件
+        //  获取 navigationmenu   Menu 事件
         navigationmenu.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.activate_vip:
                         Toast.makeText(MainActivity.this, "激活VIP", Toast.LENGTH_SHORT).show();
                         break;
@@ -115,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.sao:
                         Toast.makeText(MainActivity.this, "扫一扫", Toast.LENGTH_SHORT).show();
                         break;
